@@ -1,0 +1,62 @@
+<!-- <app-update-accounts #formAccount *ngIf="showDetail"  (result)="prosesResult($event)"></app-update-accounts> -->
+<button [routerLink]="['/form-account']" routerLinkActive="router-link-active"  type="button" class="btn btn-primary" >Add Account</button>
+<br><br>
+<table class="table table-bordered"  align="center">
+  <thead align="center">
+
+    <th scope="col">Id </th>
+    <th scope="col">Open Date</th>
+    <th scope="col">Balance</th>
+    <th scope="col">Customer</th>
+    <th scope="col">Action</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let acc of listAccounts | paginate: { itemsPerPage: 5, currentPage: p }">
+      <td align="center"><a (click)="selectAccounts(acc);">{{acc.accountnumber}}</a></td>
+      <td align="center">{{acc.opendate}}</td>
+      <td align="center">{{acc.balance | currency: 'Rp. '}}</td>
+      <!-- <td>{{acc.customerid | json}}</td> -->
+      <td align="center">{{acc.customer.firtsname}}</td>
+      <td align="center">
+        <button (click)="selectAccounts(acc);" class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#exampleModal">Edit</button>
+        <button  (click)="deleteAcc(acc);" class="btn btn-outline-danger" type="button">Del</button>
+        <button  (click)="viewAccount(acc);" class="btn btn-outline-success" type="button">view</button>
+        <!-- <button  (click)="deleteAcc(acc);" class="btn btn-danger" type="button">view</button> -->
+      </td>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+<hr>
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button> -->
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Account</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="accountsFormGroup">
+            <div class="form-group">
+              <label class="col-form-label">Open Date:</label>
+              <input type="date" class="form-control" formControlName="opendate">
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">Balance:</label>
+              <input type="number" class="form-control" formControlName="balance">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" (click)="submitData()" class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>

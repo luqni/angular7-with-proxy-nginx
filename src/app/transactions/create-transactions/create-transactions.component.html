@@ -1,0 +1,37 @@
+<form [formGroup]="transactionsFormGroup">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Type</label>
+    <div class="col-auto my-1">
+      <input type="text" placeholder="Type" class="form-control" formControlName="type">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label  class="col-sm-2 col-form-label">Amount</label>
+    <div class="col-auto my-1">
+      <input type="number" class="form-control"  placeholder="Balance" formControlName="amount">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Amount Sign</label>
+    <div class="col-auto my-1">
+      <input type="text" class="form-control" placeholder="Kredit/Debit" formControlName="amountsign">
+    </div>
+  </div>
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Account Id</legend>
+      <div class="col-auto my-1">
+        <select class="custom-select mr-sm-2" formControlName="accountid">
+          <option selected >Choose...</option>
+          <option *ngFor="let item of accounts"  >{{item.id}}</option>
+        </select>
+      </div>
+    </div>
+  </fieldset>
+ 
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button (click)="submitData()" type="submit" class="btn btn-primary">Add Data</button>
+    </div>
+  </div>
+</form>

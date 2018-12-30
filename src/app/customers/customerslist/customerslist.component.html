@@ -1,0 +1,37 @@
+<app-form #formCustomer *ngIf="showDetail" [customers]="selectedCustomer" (result)="prosesResult($event)"></app-form>
+<app-signup *ngIf="showDetail1" [customers]="selectedCustomer" (result)="prosesResult($event)"></app-signup>
+<h2 align="center">List Customers</h2>
+<a (click)="muncul()" class="btn btn-outline-info">Add Data</a><br><br>
+<table  class="table table-bordered table-hover"  align="center">
+  <thead align="center" bgcolor="#35A9DB">
+    <th  scope="col">Id</th>
+    <th scope="col">First Name </th>
+    <th scope="col">Last Name</th>
+    <th scope="col">Birth Date</th>
+    <th scope="col">Username</th>
+    <th scope="col">Password</th>
+    <th scope="col">Phone Number</th>
+    <th scope="col">Phone Type</th>
+    <th scope="col">Action</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cust of listCustomers | paginate: { itemsPerPage: 5, currentPage: p }">
+      <td><a (click)="selectCustomers(cust);"><u>{{cust.id}}</u></a></td>
+      <td>{{cust.firtsname}}</td>
+      <td>{{cust.lastname}}</td>
+      <td>{{cust.birthdate}}</td>
+      <td>{{cust.username}}</td>
+      <td>{{cust.password}}</td>
+      <td>{{cust.phonenumber}}</td>
+      <td>{{cust.phonetype}}</td>
+      <td align="center">
+        <button (click)="selectCustomers(cust);" class="btn btn-outline-primary" type="button">Edit</button>
+        <button  (click)="deletCustumors(cust);" class="btn btn-outline-danger" type="button">Del</button>
+        <button  (click)="viewAccount(cust);" class="btn btn-outline-success" type="button">view</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+

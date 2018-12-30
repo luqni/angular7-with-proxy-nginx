@@ -1,0 +1,67 @@
+<!-- <header>
+  <div class="container">
+    <a routerLink="/" class="logo">Enigma</a>
+    <nav>
+      <ul>
+        <li><a routerLink="/customers">Customers</a></li>
+        <li><a routerLink="/accounts">Accounts</a></li>
+        <li><a routerLink="/transactions">Transaction</a></li>
+        <li><a routerLink="/signup">SignUp</a></li>
+      </ul>
+    </nav>
+    
+  </div>
+</header> -->
+<style>
+  .bg-light-custom{
+    background-color: white;
+  }
+</style>
+<div class="shadow-lg p-3 mb-5 bg-white rounded sticky-top navbar-light">
+<nav class="navbar navbar-expand-lg bg-light-custom">
+  <a class="navbar-brand" href="#">Enigma Bank</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-right active">
+        <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-left dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Customers
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/signin']" routerLinkActive="router-link-active" >Sign-In</a>
+          <a class="dropdown-item" [routerLink]="['/signup']" routerLinkActive="router-link-active" >Sign-Up</a>
+          <a class="dropdown-item" [routerLink]="['/customerslist']" routerLinkActive="router-link-active" >Customers List</a>
+        </div>
+      </li>
+      <li class="nav-left dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Accounts
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/form-account']" routerLinkActive="router-link-active" >Create Account</a>
+          <a class="dropdown-item" [routerLink]="['/accounts-list']" routerLinkActive="router-link-active" >Account List</a>
+        </div>
+      </li>
+      <li class="nav-left dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Transaction
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/create-transactions']" routerLinkActive="router-link-active" >Create Account</a>
+          <a class="dropdown-item" [routerLink]="['/list-transaction']" routerLinkActive="router-link-active" >Account List</a>
+        </div>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </div>
+</nav>
+</div>

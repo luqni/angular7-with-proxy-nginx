@@ -1,0 +1,28 @@
+<h3 align="center">Transactions Data</h3><br>
+<table class="table table-bordered"  align="center">
+  <thead align="center">
+
+    <th scope="col">Id </th>
+    <th scope="col">Type</th>
+    <th scope="col">Amount</th>
+    <th scope="col">Amount Sign</th>
+    <th scope="col">Account Id</th>
+    <th scope="col">Customer</th>
+    <th scope="col">Action</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let trx of listTransaction | paginate: { itemsPerPage: 5, currentPage: p }">
+      <td align="center"><a (click)="selectAccounts(acc);">{{trx.id}}</a></td>
+      <td align="center">{{trx.type}}</td>
+      <td align="center">{{trx.amount | currency: 'Rp. '}}</td>
+      <td align="center">{{trx.amountsign}}</td>
+      <td align="center">{{trx.account.accountnumber}}</td>
+      <td align="center">{{trx.account.customer['firtsname']}}</td>
+      <td align="center">
+        <button  routerLink="/update-transactions/{{trx.id}}" class="btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModal">Edit</button>
+        <button  (click)="deletTransactions(trx)" class="btn btn-danger" type="button">Del</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

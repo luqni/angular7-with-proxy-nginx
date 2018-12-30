@@ -1,0 +1,47 @@
+
+<div class="container-fluid">
+  <h1 align="center">Customer Update!</h1>
+ 
+  <form [formGroup]="customersFormGroup"> 
+    <div class="form-group">
+      <label>First Name :</label>
+      <input type="text" class="form-control" name="firtsname" formControlName="firtsname">
+  </div>
+
+  <div class="form-group">
+      <label>Last Name :</label>
+      <input type="text" class="form-control" name="lastname" formControlName="lastname">
+  </div>
+
+  <div class="form-group">
+    <label>Username :</label>
+    <input type="text" class="form-control" name="username" formControlName="username">
+  </div>
+
+  <div class="form-group">
+    <label>Password :</label>
+    <input type="password" class="form-control" name="password" formControlName="password">
+  </div>
+
+  <div class="form-group">
+    <label>Phone Type  :</label>
+    <input type="text" class="form-control" name="phonetype" formControlName="phonetype"> 
+   
+  </div>
+
+  <div class="form-group">
+      <label>Phone Number</label>
+      <input type="text" class="form-control" name="phonenumber" formControlName="phonenumber">{{customers.phonenumber | enigma}}
+  </div>
+
+  <div class="form-group">
+      <label>Birth Date</label>
+      <input type="date" class="form-control" name="birthdate" formControlName="birthdate">
+  </div>
+  <button (click)="cancelChanges()" class="btn btn-primary" type="button">Cancel</button>
+  <button (click)=" submitData()"[disabled]="!customersFormGroup.valid" class="btn btn-warning" type="button">Update</button>
+  <button (click)="deleteData()" class="btn btn-danger" type="button">Delete !!!</button>
+</form>
+</div>
+<hr>
+
